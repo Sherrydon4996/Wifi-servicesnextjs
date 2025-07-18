@@ -194,7 +194,7 @@ Message: ${data.message}
           <h2 className={styles.title}>Get Connected Today</h2>
           <div className={styles.titleUnderline}></div>
           <p className={styles.subtitle}>
-            Ready to experience Kenya's fastest internet? Contact us now for
+            Ready to experience Kenyas fastest internet? Contact us now for
             instant setup.
           </p>
         </div>
