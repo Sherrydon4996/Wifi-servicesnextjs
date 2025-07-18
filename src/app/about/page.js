@@ -125,9 +125,9 @@ const About = () => {
               Connecting Kenya to the Future
             </h3>
             <p className={styles.description}>
-              Since 2018, KenyaFiber has been at the forefront of Kenya's
-              digital transformation, providing reliable, high-speed internet
-              solutions to homes and businesses across the country.
+              Since 2018, KenyaFiber has been at the forefront of Kenyas digital
+              transformation, providing reliable, high-speed internet solutions
+              to homes and businesses across the country.
             </p>
             <p className={styles.description}>
               Our mission is to bridge the digital divide by making fast,
@@ -164,11 +164,13 @@ const About = () => {
             }`}
           >
             <div className={styles.imageContainer}>
-              <img
+              <Image
                 src="/about.jpg"
                 alt="KenyaFiber Team"
-                className={styles.aboutImage}
+                width={600}
+                height={400}
               />
+
               <div className={styles.imageOverlay}>
                 <div className={styles.overlayContent}>
                   <h4>Our Vision</h4>
