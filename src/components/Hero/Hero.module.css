@@ -1,0 +1,386 @@
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background: linear-gradient(145deg, #1e3a8a 0%, #4c1d95 100%);
+}
+
+.canvasContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  /* filter: blur(2px); */
+  isolation: isolate;
+}
+
+.content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  padding-top: 100px;
+  isolation: isolate;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 30px;
+}
+
+.heroGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+  min-height: 80vh;
+}
+
+/* Text Content */
+.textContent {
+  opacity: 0;
+  transition: opacity 1.2s ease, transform 1.2s ease;
+}
+
+.textContent.fadeIn {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.title {
+  font-size: 4.5rem;
+  font-weight: 900;
+  line-height: 1.1;
+  margin-bottom: 1.8rem;
+  background: linear-gradient(135deg, #ffffff 0%, #bae6fd 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 40px rgba(255, 255, 255, 0.4);
+}
+
+.subtitle {
+  font-size: 1.5rem;
+  color: rgba(255, 255, 255, 0.95);
+  margin-bottom: 2.5rem;
+  line-height: 1.7;
+  max-width: 500px;
+}
+
+.ctaButtons {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 3.5rem;
+}
+
+.primaryButton {
+  padding: 18px 36px;
+  background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 100%);
+  color: white;
+  border: none;
+  border-radius: 16px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  box-shadow: 0 6px 25px rgba(59, 130, 246, 0.4),
+    inset 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+.primaryButton:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 35px rgba(59, 130, 246, 0.6),
+    inset 0 0 15px rgba(255, 255, 255, 0.3);
+}
+
+.secondaryButton {
+  padding: 18px 36px;
+  background: rgba(255, 255, 255, 0.05);
+  color: white;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  backdrop-filter: blur(12px);
+}
+
+.secondaryButton:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.4);
+  transform: translateY(-4px);
+}
+
+/* Bento Grid Features */
+.features {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.feature {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 1rem;
+  border-radius: 12px;
+  color: rgba(255, 255, 255, 0.95);
+  font-weight: 600;
+  box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.feature:hover {
+  transform: translateY(-3px);
+}
+
+.featureIcon {
+  font-size: 1.8rem;
+  filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.4));
+}
+
+/* Image Content */
+.imageContent {
+  opacity: 0;
+  transition: opacity 1.2s ease 0.3s, transform 1.2s ease 0.3s;
+}
+
+.imageContent.fadeIn {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.imageContainer {
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.4);
+  isolation: isolate;
+}
+
+.heroImage {
+  width: 100%;
+  height: 600px;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+  filter: none !important;
+}
+
+.heroImage:hover {
+  transform: scale(1.03);
+}
+
+.glassOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.1) 0%,
+    rgba(255, 255, 255, 0.05) 100%
+  );
+  /* backdrop-filter: blur(2px); */
+  pointer-events: none;
+}
+
+/* Floating Stats with Neumorphism */
+.floatingStats {
+  position: absolute;
+  bottom: 80px;
+  left: 30px;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.stat {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 16px;
+  padding: 1.2rem;
+  text-align: center;
+  color: white;
+  min-width: 100px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2),
+    inset 0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+.statNumber {
+  font-size: 1.8rem;
+  font-weight: 800;
+  margin-bottom: 0.3rem;
+}
+
+.statLabel {
+  font-size: 0.9rem;
+  opacity: 0.95;
+}
+
+/* Indicators with Micro-Interactions */
+.indicators {
+  position: absolute;
+  bottom: 90px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0.75rem;
+  z-index: 3;
+}
+
+.indicator {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.3);
+  cursor: pointer;
+  transition: all 0.4s ease;
+}
+
+.indicator.active {
+  background: linear-gradient(135deg, #60a5fa, #a78bfa);
+  transform: scale(1.3);
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.6);
+}
+
+.indicator:hover {
+  background: rgba(255, 255, 255, 0.7);
+}
+
+/* Scroll Indicator */
+.scrollIndicator {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1rem;
+  z-index: 3;
+}
+
+.scrollMouse {
+  width: 28px;
+  height: 48px;
+  border: 2px solid rgba(255, 255, 255, 0.6);
+  border-radius: 16px;
+  position: relative;
+}
+
+.scrollWheel {
+  width: 5px;
+  height: 10px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 3px;
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: scrollAnimation 2.5s infinite;
+}
+
+@keyframes scrollAnimation {
+  0% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+  50% {
+    opacity: 0.4;
+    transform: translateX(-50%) translateY(12px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .heroGrid {
+    grid-template-columns: 1fr;
+    gap: 4rem;
+    text-align: center;
+  }
+
+  .title {
+    font-size: 3.5rem;
+  }
+
+  .subtitle {
+    font-size: 1.3rem;
+    margin: 0 auto 2rem;
+  }
+
+  .ctaButtons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .primaryButton,
+  .secondaryButton {
+    width: 100%;
+    max-width: 350px;
+  }
+
+  .features {
+    grid-template-columns: 1fr;
+    justify-content: center;
+  }
+
+  .imageContainer {
+    margin-top: 3rem;
+  }
+
+  .heroImage {
+    height: 400px;
+  }
+
+  .floatingStats {
+    position: static;
+    justify-content: center;
+    margin-top: 1.5rem;
+  }
+  .indicators {
+    bottom: 165px;
+  }
+  .scrollIndicator {
+    bottom: 120px;
+  }
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 2.8rem;
+  }
+
+  .subtitle {
+    font-size: 1.1rem;
+  }
+
+  .heroImage {
+    height: 300px;
+  }
+
+  .stat {
+    min-width: 80px;
+    padding: 0.8rem;
+  }
+
+  .statNumber {
+    font-size: 1.4rem;
+  }
+
+  .statLabel {
+    font-size: 0.8rem;
+  }
+}

@@ -1,0 +1,407 @@
+/* App.module.css */
+.app {
+  min-height: 100vh;
+  background-color: #ffffff;
+  color: #111827;
+  transition: all 0.3s ease;
+}
+
+.app.dark {
+  background-color: #111827;
+  color: #ffffff;
+}
+
+/* @media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+} */
+
+/* Global animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+@keyframes glow {
+  0%,
+  100% {
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(59, 130, 246, 0.6);
+  }
+}
+
+/* Utility classes */
+.fadeInUp {
+  animation: fadeInUp 0.8s ease-out;
+}
+
+.slideInLeft {
+  animation: slideInLeft 0.8s ease-out;
+}
+
+.slideInRight {
+  animation: slideInRight 0.8s ease-out;
+}
+
+.pulse {
+  animation: pulse 2s infinite;
+}
+
+.glow {
+  animation: glow 2s infinite;
+}
+
+/* Gradient text effect */
+.gradientText {
+  background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Button styles */
+.primaryButton {
+  background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+  color: white;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+  transform: translateY(0);
+}
+
+.primaryButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);
+}
+
+.secondaryButton {
+  background: transparent;
+  color: #3b82f6;
+  border: 2px solid #3b82f6;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.secondaryButton:hover {
+  background: #3b82f6;
+  color: white;
+  transform: translateY(-2px);
+}
+
+/* Container styles */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.section {
+  padding: 80px 0;
+}
+
+.sectionTitle {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.sectionSubtitle {
+  text-align: center;
+  font-size: 1.125rem;
+  color: #6b7280;
+  max-width: 600px;
+  margin: 0 auto 3rem;
+}
+
+.dark .sectionSubtitle {
+  color: #d1d5db;
+}
+/* Reset and Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* HTML and Body Scroll Behavior */
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden; /* Prevent horizontal scroll */
+  overflow-y: auto; /* Always show vertical scrollbar when needed */
+}
+
+body {
+  overflow-x: hidden;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+}
+
+/* Custom Scrollbar Styles for Webkit browsers (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 6px;
+  border: 2px solid #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+::-webkit-scrollbar-corner {
+  background: #f1f1f1;
+}
+
+/* Firefox Scrollbar Styles */
+html {
+  scrollbar-width: auto;
+  scrollbar-color: #888 #f1f1f1;
+}
+
+/* For better cross-browser compatibility */
+body {
+  scrollbar-width: auto;
+  scrollbar-color: #888 #f1f1f1;
+}
+
+/* Container Styles to Prevent Jumping */
+.container,
+.main-content {
+  overflow-x: hidden;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+}
+
+/* Specific fixes for common scrolling issues */
+.scroll-container {
+  height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Prevent text selection interfering with scroll */
+.no-select {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Fix for anchor link jumping */
+.smooth-anchor {
+  scroll-margin-top: 80px; /* Adjust based on your header height */
+}
+
+/* Alternative scrollbar theme - Dark Mode */
+.dark-scrollbar::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+.dark-scrollbar::-webkit-scrollbar-track {
+  background: #2d2d2d;
+  border-radius: 6px;
+}
+
+.dark-scrollbar::-webkit-scrollbar-thumb {
+  background: #555;
+  border-radius: 6px;
+  border: 2px solid #2d2d2d;
+}
+
+.dark-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #777;
+}
+
+/* Thin scrollbar variant */
+.thin-scrollbar::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.thin-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.thin-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 4px;
+}
+
+.thin-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+/* Fix for modal/overlay scrolling issues */
+.modal-open {
+  overflow: hidden;
+}
+
+.modal-content {
+  overflow-y: auto;
+  max-height: 90vh;
+  scroll-behavior: smooth;
+}
+
+/* Prevent horizontal overflow on all elements */
+* {
+  max-width: 100%;
+}
+
+/* Fix for table scrolling */
+.table-container {
+  overflow-x: auto;
+  overflow-y: visible;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Smooth scrolling for specific elements */
+.smooth-scroll {
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Reset any problematic transforms that might cause jumping */
+.no-transform {
+  transform: none !important;
+  -webkit-transform: none !important;
+}
+
+/* Force scrollbar to always be visible */
+.always-scroll {
+  overflow-y: scroll !important;
+}
+
+/* Media query for mobile devices */
+@media (max-width: 768px) {
+  /* Thinner scrollbars on mobile */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    border: 1px solid #f1f1f1;
+  }
+
+  /* Ensure smooth scrolling on touch devices */
+  body,
+  html {
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+  }
+}
+
+/* Fix for position: fixed elements causing scroll issues */
+.fixed-element {
+  position: fixed;
+  transform: translateZ(0); /* Force hardware acceleration */
+  -webkit-transform: translateZ(0);
+}
+
+/* Prevent scroll anchoring issues */
+* {
+  overflow-anchor: none;
+}
+
+/* Root level scroll anchoring */
+html {
+  overflow-anchor: auto;
+}
+
+/* Additional utility classes */
+.scroll-hidden {
+  overflow: hidden;
+}
+
+.scroll-auto {
+  overflow: auto;
+}
+
+.scroll-visible {
+  overflow: visible;
+}
+
+.scroll-x-hidden {
+  overflow-x: hidden;
+}
+
+.scroll-y-auto {
+  overflow-y: auto;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .sectionTitle {
+    font-size: 2rem;
+  }
+
+  .container {
+    padding: 0 16px;
+  }
+
+  .section {
+    padding: 60px 0;
+  }
+}
